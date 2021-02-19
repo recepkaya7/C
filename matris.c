@@ -3,17 +3,39 @@
 
 int main()
 {
-   int satir,sutun;
-   int x,y;
-   printf("satir ve sutun sayisini giriniz:");
-   scanf("%d%d",&satir,&sutun);
+    int i,j;
+    int matris[6][9];
+    int sayi,sayac=0;
+    int dizi[54];
+    while(sayac!=54){
+     yenisayi:
+         srand(time(NULL));
+         sayi=rand()%100+1;
+        for(i=0;i<sayac;i++){
+          if(dizi[i]==sayi)
+               goto yenisayi;
+        }
+        dizi[sayac]=sayi;
+        sayac++;
+    }
+    int a=0;
+    for(i=0;i<6;i++){
+        for(j=0;j<9;j++){
 
-   for(x=0;x<satir;x++){
-    for(y=0;y<sutun;y++)
-        printf("%d%d ",x,y);
-        printf("\n");
+                matris[i][j]=dizi[a];
+                a++;
 
-   }
 
+        }
+    }
+    for(i=0;i<6;i++){
+        for(j=0;j<9;j++){
+            printf("%5d",matris[i][j]);
+
+        }printf("\n");
+    }
+    free(matris);
+    free(dizi);
     return 0;
+
 }
