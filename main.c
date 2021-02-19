@@ -3,42 +3,21 @@
 
 int main()
 {
-   int k,s,yildiz,bosluk,giris;
-   printf("giris:");
-   scanf("%d",&giris);
-   yildiz=1;
-   bosluk=giris-1;
-   for(s=1;s<=giris;s++){
-        for(k=1;k<=bosluk;k++){
-            printf(" ");
-        }
-        for(k=1;k<=yildiz;k++){
-            if(k==1 || k==yildiz)
-                printf("o");
-            else
-            printf("*");
-        }printf("\n");
-        bosluk--;
-         yildiz+=2;
-   }
-    bosluk=1;
-    yildiz-=4;
-    for(s=1;s<=giris;s++){
-        for(k=1;k<=bosluk;k++){
-            printf(" ");
-        }
-        for(k=1;k<=yildiz;k++){
-            if(k==1 || k==yildiz)
-                printf("o");
-            else
-                printf("*");
-        }printf("\n");
-        bosluk++;
-        yildiz-=2;
+    int satir;
+    int sutun;
+    int i,j;
+    printf("satir ve sutun degerlerini giriniz:");
+    scanf("%d%d",&satir,&sutun);
+    for(i=1;i<=satir;i++){
+        for(j=1;j<=sutun-i;j++){
+            printf(". ");}
+         for(j=1;j<=i;j++){
+            printf("x ");}
+           for(j=1;j<=i-1;j++){
+            printf("z ");}
+
+    printf("\n");
     }
-
-
-
 
 
     return 0;
