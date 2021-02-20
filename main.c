@@ -3,41 +3,36 @@
 
 int main()
 {
-    // break döngüyü kirar
-    printf("--break--\n");
-    int i;
-    for(i=0; i<10; i++)
-    {
-        if(i==6)
-            break;
-        printf("%d\n",i);
-    }
+    char matris[9][9];
+    int i,j;
+    int x,y;
+    printf("x ve y degerlerini giriniz(0-7):");
+    scanf("%d %d",&y,&x);
 
-
-
-    printf("--continue--\n");
-    for(i=0; i<10; i++)
-    {
-        if(i==6)
-            continue;
-        printf("%d\n",i);
-    }
-
-
-
-    printf("--goto--\n");
-    int a=10;
-LOOP :
-    do
-    {
-        if(a==15)
-        {
-            a=a+2;
-            goto LOOP;
+    for(i=0;i<8;i++){
+        for(j=0;j<8;j++){
+            if(i==x && j==y)
+                matris[i][j]='A';
+            else
+                matris[i][j]='-';
+            if(i==x-2 || i-2==x){
+                if(j-1==y || j+1==y)
+                matris[i][j]='*';}
+            if(i==x-1 || i-1==x){
+                if(j-2==y || j+2==y)
+                matris[i][j]='*';}
+        }//printf("\n");
         }
-        printf("a:%d\n",a);
-        a++;
-    }
-    while(a<20);
+        printf(" ");
+        for(i=0;i<8;i++){
+            printf("%d",i);
+        }printf("\n");
+        for(i=0;i<8;i++){
+                printf("%d",i);
+            for(j=0;j<8;j++){
+                printf("%c",matris[i][j]);
+            }printf("\n");
+        }
+        free(matris);
     return 0;
 }
