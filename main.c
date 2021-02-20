@@ -3,22 +3,41 @@
 
 int main()
 {
-    int satir;
-    int sutun;
-    int i,j;
-    printf("satir ve sutun degerlerini giriniz:");
-    scanf("%d%d",&satir,&sutun);
-    for(i=1;i<=satir;i++){
-        for(j=1;j<=sutun-i;j++){
-            printf(". ");}
-         for(j=1;j<=i;j++){
-            printf("x ");}
-           for(j=1;j<=i-1;j++){
-            printf("z ");}
-
-    printf("\n");
+    // break döngüyü kirar
+    printf("--break--\n");
+    int i;
+    for(i=0; i<10; i++)
+    {
+        if(i==6)
+            break;
+        printf("%d\n",i);
     }
 
 
+
+    printf("--continue--\n");
+    for(i=0; i<10; i++)
+    {
+        if(i==6)
+            continue;
+        printf("%d\n",i);
+    }
+
+
+
+    printf("--goto--\n");
+    int a=10;
+LOOP :
+    do
+    {
+        if(a==15)
+        {
+            a=a+2;
+            goto LOOP;
+        }
+        printf("a:%d\n",a);
+        a++;
+    }
+    while(a<20);
     return 0;
 }
