@@ -3,25 +3,31 @@
 
 int main()
 {
+    int matris[50][2];
+    FILE *koordinatlar=fopen("input.txt","r");
+    int i;
+    for(i=0;!feof(koordinatlar);i++){
+        fscanf(koordinatlar,"%d %d",&matris[i][0],&matris[i][1]);
+    }int boyut=i;
 
-   int A[4]={7,2,9,4};
-   int i;
-   int max=A[0];
-   int min=A[0];
-   for(i=1;i<4;i++){
-    if(max>A[i])
-        max=max;
-    else
-        max=A[i];
-   }
-   for(i=1;i<4;i++){
-    if(min<A[i])
-        min=min;
-    else
-        min=A[i];
-   }printf("dizideki max deger:%d\n",max);
-    printf("dizideki min deger:%d\n",min);
+    int j;
+    double gecici;
+    for(i=0;i<boyut-1;i++){
+        for(j=i+1;j<boyut;j++){
+            if(matris[i][0]>matris[j][0]){
+                gecici=matris[i][0];
+                matris[i][0]=matris[j][0];
+                matris[j][0]=gecici;
+                gecici=matris[i][1];
+                matris[i][1]=matris[j][1];
+                matris[j][1]=gecici;
+            }
+        }
+    }
 
+    for(i=0;i<boyut;i++){
+        printf("(%d,%d)\n",matris[i][0],matris[i][1]);
+    }
 
     return 0;
 }
