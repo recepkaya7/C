@@ -1,38 +1,43 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+void ekle(int boyuta,int boyutb,char *a,char *b)
+{
+    int i;
+    a[boyuta-1]=' ';
+    for(i=boyuta; i<boyuta+boyutb; i++)
+    {
+        a[i]=b[i-boyuta];
+    }
+/*
+pazartersi 10
+sali 4
+carsamba 8
+persembe 8
+cuma 4
+cumartesi 9
+pazar 5
+*/
+
+
+}
 
 int main()
 {
-    char matris[9][9];
-    int i,j;
-    int x,y;
-    printf("x ve y degerlerini giriniz(0-7):");
-    scanf("%d %d",&y,&x);
-
-    for(i=0;i<8;i++){
-        for(j=0;j<8;j++){
-            if(i==x && j==y)
-                matris[i][j]='A';
-            else
-                matris[i][j]='-';
-            if(i==x-2 || i-2==x){
-                if(j-1==y || j+1==y)
-                matris[i][j]='*';}
-            if(i==x-1 || i-1==x){
-                if(j-2==y || j+2==y)
-                matris[i][j]='*';}
-        }//printf("\n");
-        }
-        printf(" ");
-        for(i=0;i<8;i++){
-            printf("%d",i);
-        }printf("\n");
-        for(i=0;i<8;i++){
-                printf("%d",i);
-            for(j=0;j<8;j++){
-                printf("%c",matris[i][j]);
-            }printf("\n");
-        }
-        free(matris);
+    char a[20],b[20];
+    printf("ilk string:");
+    fgets(a,20,stdin);
+    printf("ikinci string:");
+    fgets(b,20,stdin);
+    int au=strlen(a);
+    int bu=strlen(b);
+    printf("%d %d \n",au,bu);
+    ekle(au,bu,&a,&b);
+    for(int i=0; i<au+bu; i++)
+    {
+        printf("%c",a[i]);
+    }
+    free(a);
+    free(b);
     return 0;
 }
